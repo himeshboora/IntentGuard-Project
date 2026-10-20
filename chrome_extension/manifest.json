@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "IntentGuard Security Scanner",
+  "version": "1.0",
+  "description": "Zero-Trust Code Transfer: Detects semantic-execution divergence in GitHub commits.",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*",
+    "https://github.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://github.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
